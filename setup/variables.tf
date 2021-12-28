@@ -35,7 +35,7 @@ variable "az_location" {
 variable "az_container_name" {
   type        = string
   description = "Name of container on storage account for Terraform state"
-  default     = "attila-terrastate"
+  default     = "terraform-state"
 }
 
 variable "az_state_key" {
