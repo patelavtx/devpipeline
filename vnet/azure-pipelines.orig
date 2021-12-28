@@ -19,7 +19,7 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-    - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
+    - task: TerraformInstaller@0
       displayName: Install Terraform
       inputs:
         terraformVersion: 'latest'
@@ -31,7 +31,7 @@ stages:
         ARM_SAS_TOKEN: $(sas_token)
       inputs:
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/vnet'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/2021-05-11-ADO/vnet'
         commandOptions: '-backend-config=storage_account_name=$(storageaccount) -backend-config=container_name=$(container_name) -backend-config=key=$(key)'
         backendType: 'selfConfigured'
 
@@ -40,7 +40,7 @@ stages:
       displayName: Validate Config
       inputs:
         command: 'validate'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/vnet'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/2021-05-11-ADO/vnet'
     
 - stage: Plan
   displayName: Plan
@@ -49,7 +49,7 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-    - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0 
+    - task: TerraformInstaller@0
       displayName: Install Terraform
       inputs:
         terraformVersion: 'latest'
@@ -61,7 +61,7 @@ stages:
         ARM_SAS_TOKEN: $(sas_token)
       inputs:
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/vnet'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/2021-05-11-ADO/vnet'
         commandOptions: '-backend-config=storage_account_name=$(storageaccount) -backend-config=container_name=$(container_name) -backend-config=key=$(key)'
         backendType: 'selfConfigured'
 
@@ -76,7 +76,7 @@ stages:
         ARM_TENANT_ID: $(az_tenant)
       inputs:
         command: 'plan'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/vnet'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/2021-05-11-ADO/vnet'
 
 # Approve
 - stage: Approve
@@ -99,7 +99,7 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-    - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0 
+    - task: TerraformInstaller@0
       displayName: Install Terraform
       inputs:
         terraformVersion: 'latest'
@@ -111,7 +111,7 @@ stages:
         ARM_SAS_TOKEN: $(sas_token)
       inputs:
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/vnet'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/2021-05-11-ADO/vnet'
         commandOptions: '-backend-config=storage_account_name=$(storageaccount) -backend-config=container_name=$(container_name) -backend-config=key=$(key)'
         backendType: 'selfConfigured'
 
@@ -126,5 +126,5 @@ stages:
         ARM_TENANT_ID: $(az_tenant)
       inputs:
         command: 'apply'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/vnet'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/2021-05-11-ADO/vnet'
         commandOptions: '-auto-approve'
