@@ -1,6 +1,7 @@
-ado_org_service_url = "https://dev.azure.com/patela31/testpipeline"
+ado_org_service_url = "https://dev.azure.com/patela31/"
+ado_github_repo     = "patelavtx/devpipeline" 
+
 /*
-ado_github_repo 
 ado_pipeline_yaml_path_1 
 ado_github_pat 
 prefix 
