@@ -12,8 +12,7 @@ variable "ado_github_repo" {
 variable "ado_pipeline_yaml_path_1" {
   type        = string
   description = "Path to the yaml for the first pipeline"
-  default     = "devpipeline/vnet/azure-pipellines.yaml
-qnet/azure-pipelines.yaml"
+  default     = "devpipeline/vnet/azure-pipelines.yaml"
 }
 
 variable "ado_github_pat" {
