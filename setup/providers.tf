@@ -1,19 +1,21 @@
+
+# https://registry.terraform.io/providers/microsoft/azuredevops/latest
 terraform {
   required_providers {
     azuredevops = {
       source  = "microsoft/azuredevops"
-      version = ">=0.1.0"
+      version = ">=0.2.2"
     }
 
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 2.0"
+      version = ">=3.27.0"
 
     }
 
     azuread = {
       source = "hashicorp/azuread"
-      version = "~> 1.0"
+      version = ">=2.29.0"
     }
 
   }

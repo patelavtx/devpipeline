@@ -65,8 +65,8 @@ variable "az_tenant" {
 }
 
 resource "random_integer" "suffix" {
-  min = 10000
-  max = 99999
+  min = 1000
+  max = 9999
 }
 
 locals {
